@@ -57,6 +57,25 @@ let jp = {
 };
 // evh.years = 40 // nie można dodać właściwości do obiektu z typem
 const greetGuitarist = (guitarist) => {
-    return `Hello ${guitarist.name}`;
+    var _a;
+    // return `Hello ${guitarist.name}`;
+    // problem ze względu braku możliwości sprawdzenia czy właściwość istnieje
+    // return `Hello ${guitarist.name?.toUpperCase()}`;
+    // można dodać ? żeby warunkować return jeżeli właściwość istnieje
+    if (guitarist.name) {
+        return `Hello ${(_a = guitarist.name) === null || _a === void 0 ? void 0 : _a.toUpperCase()}`;
+    }
+    return "Hello!";
+    // tutaj "narrowing" żeby sprawdzić czy jest właściwlość, jeżeli nie to inny return
 };
 console.log(greetGuitarist(jp));
+//Enums
+var Grade;
+(function (Grade) {
+    Grade[Grade["U"] = 3] = "U";
+    Grade[Grade["D"] = 4] = "D";
+    Grade[Grade["C"] = 5] = "C";
+    Grade[Grade["B"] = 6] = "B";
+    Grade[Grade["A"] = 7] = "A";
+})(Grade || (Grade = {}));
+console.log(Grade);
