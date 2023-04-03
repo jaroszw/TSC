@@ -81,5 +81,5 @@ const MyBands = new Bands();
 MyBands.data = ['Neil young', 'Lewd Zep'];
 console.log(MyBands.data);
 MyBands.data = [...MyBands.data, 'Metallica'];
-MyBands.data = ['Metallica', 12324];
+// MyBands.data = ['Metallica', 12324];
 console.log(MyBands.data);
