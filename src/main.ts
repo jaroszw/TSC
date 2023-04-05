@@ -110,44 +110,44 @@
 
 type One = string;
 type Two = string | number;
-type Three = 'hello';
+type Three = "hello";
 
 // converty to more or less psecific
 
-let a: One = 'Good'; // === let a = <One>'Good';
+let a: One = "Good"; // === let a = <One>'Good';
 let b = a as Two; // less specific
 let c = a as Three; // more specific
 
 // Not possible in React
-let d = <One>'word';
-let e = <string | number>'word';
+let d = <One>"word";
+let e = <string | number>"word";
 
 const addOrConcat = (
   a: number,
   b: number,
-  c: 'add' | 'concat'
+  c: "add" | "concat"
 ): number | string => {
-  if (c === 'add') return a + b;
-  return '' + a + b;
+  if (c === "add") return a + b;
+  return "" + a + b;
 };
 
-let myVal: string = addOrConcat(2, 2, 'concat') as string;
-let myNextVal: number = addOrConcat(2, 2, 'concat') as number;
+let myVal: string = addOrConcat(2, 2, "concat") as string;
+let myNextVal: number = addOrConcat(2, 2, "concat") as number;
 // Typescript sees no problem here - but a string is returned
 
 // The DOM
 // const img = document.getElementById('img');
-const img = document.getElementById('img') as HTMLImageElement;
+const img = document.getElementById("img") as HTMLImageElement;
 // we know that thgis is an HTML img element and that this is not null but TSC doesnt know thatand doesnt know wether there is src atribute
 
-const img2 = document.getElementsByTagName('img')!;
+const img2 = document.getElementsByTagName("img")!;
 console.log(img2);
 //We show that this element is not null and TSC sees that this is HTML element, but src may be null
 
-const myImg = document.getElementById('img')! as HTMLImageElement;
+const myImg = document.getElementById("img")! as HTMLImageElement;
 // with only ! TSC will know that this is not empty but will not ghet the type of an element
 
-const nextImg = <HTMLImageElement>document.getElementById('img');
+const nextImg = <HTMLImageElement>document.getElementById("img");
 // Other way to implicitly indicate to TSC type of an element but it will not work in Recat
 
 // img.src;
