@@ -47,7 +47,7 @@ interface BoolCheck<T> {
   is: boolean;
 }
 
-const checkBoolValue = <T>(arg: T): BoolCheck<> => {
+const checkBoolValue = <T>(arg: T): BoolCheck<T> => {
   if (Array.isArray(arg) && !arg.length) {
     return { value: arg, is: false };
   }
